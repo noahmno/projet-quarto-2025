@@ -9,12 +9,9 @@ data = {"request": "subscribe",
   "name": "Django ",
   "matricules": [ "22294"]
 }
-
 json_data= json.dumps(data)
 json_bytes= json_data.encode('utf-8')
 s.sendall(json_bytes)
-
-
 
 reponse=s.recv(3000)
 print("réponse du serveur:",reponse.decode('utf-8'))
@@ -24,7 +21,6 @@ s.close()
 ip = '10.66.233.162'
 port = 1234
 adresse = (ip, port)
-
 
 s2 = socket.socket()
 s2.bind(adresse)
