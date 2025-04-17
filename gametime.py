@@ -36,14 +36,14 @@ print("connecté à ", addr)
 data2 = s3.recv(1234)
 print("données reçu:",data2.decode('utf-8'))
 
-reponse2= {"status": "ok", "message": "pong"}
+reponse2= {"status": "ok", "message":"pong"}
 
 json_bytes2= json.dumps(reponse2).encode('utf-8')
 s3.recv(1234)
 s3.send(json_bytes2)
 
 
-print("deuxième réponse du serveur", reponse2["pong"])
+print("deuxième réponse du serveur", reponse2["message"])
 
 s3.close()
 s2.close()
