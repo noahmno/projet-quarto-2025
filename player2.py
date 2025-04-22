@@ -5,10 +5,10 @@ import json
 s = socket.socket()
 s.connect(('172.17.10.52', 3000))
 data = {"request": "subscribe",
-  "port": 8888,
-  "name": "pounds ",
-  "matricules": [ "22259"]
-}
+  "port": 1234,
+  "name": "kg",
+  "matricules": [ "22284"]  # si on change pas un des trois , le player 2 va juste remplacer le premier
+}  # le player 2 va se distinguer par son NOM son MATRICULE et son PORT!!!!! sinon le code reste le même
 json_data= json.dumps(data)
 json_bytes= json_data.encode('utf-8')
 s.sendall(json_bytes)
@@ -19,7 +19,7 @@ s.close()
 
 # mtn faut le ping pong ce qui va servir quand on devra jouer , faire des coups
 ip = '172.17.10.52'
-port = 8888
+port = 1234
 adresse = (ip, port)
 
 s2 = socket.socket()
@@ -29,13 +29,13 @@ print("en attente de connexion...")
 s3, addr = s2.accept()
 
 print("connecté à ", addr)
-data2 = s3.recv(8888)
+data2 = s3.recv(1234)
 print("données reçu:",data2.decode('utf-8'))
 
 reponse2= {"status": "ok", "message":"pong"}
 
 json_bytes2= json.dumps(reponse2).encode('utf-8')
-s3.recv(8888)
+s3.recv(1234)
 s3.send(json_bytes2)
 
 
