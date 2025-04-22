@@ -3,7 +3,7 @@ import json
 
 # ça ça sert à se connecter au serveur , s'y inscrire
 s = socket.socket()
-s.connect(('10.66.233.162', 3000))
+s.connect(('172.17.33.175', 3000))
 data = {"request": "subscribe",
   "port": 1234,
   "name": "Django ",
@@ -18,7 +18,7 @@ print("réponse du serveur:",reponse.decode('utf-8'))
 s.close()
 
 # mtn faut le ping pong ce qui va servir quand on devra jouer , faire des coups
-ip = '10.66.233.162'
+ip = '172.17.33.175'
 port = 1234
 adresse = (ip, port)
 
